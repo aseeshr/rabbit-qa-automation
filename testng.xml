@@ -1,0 +1,8 @@
+<suite name="Mercury Tour Registration Page" verbose="1">
+  <test name="Verify Registration page">
+    <classes>
+      <class name="com.fivedots.app.VerifyRegistrationPageTest" />
+      <class name="com.fivedots.app.AppTest" />
+    </classes>
+  </test>
+</suite>
