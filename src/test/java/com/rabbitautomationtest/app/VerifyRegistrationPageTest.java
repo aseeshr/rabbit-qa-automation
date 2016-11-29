@@ -7,11 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -43,7 +40,7 @@ public class VerifyRegistrationPageTest extends TestCase {
     driver.findElement(By.name("phone")).clear();
     driver.findElement(By.name("phone")).sendKeys("0987654321");
     driver.findElement(By.id("userName")).clear();
-    driver.findElement(By.id("userName")).sendKeys("test@test.com");
+    driver.findElement(By.id("userName")).sendKeys("aseeshr");
     driver.findElement(By.name("address1")).clear();
     driver.findElement(By.name("address1")).sendKeys("thailand bangkok");
     driver.findElement(By.name("city")).clear();
@@ -70,6 +67,16 @@ public class VerifyRegistrationPageTest extends TestCase {
 	    driver.findElement(By.name("register")).click();
 	    Thread.sleep(1000);
 	    Assert.assertTrue(driver.getPageSource().contains("asee"));
+  }
+  
+  @Test(groups={"registration.fields"}, description="test for the Email")
+  public void testEmail() throws Exception {
+	    driver.get(baseUrl + "/mercuryregister.php");
+	    driver.findElement(By.name("email")).clear();
+	    driver.findElement(By.name("email")).sendKeys("aseeshr");
+	    driver.findElement(By.name("register")).click();
+	    Thread.sleep(1000);
+	    Assert.assertTrue(driver.getPageSource().contains("aseeshr"));
   }
 
   @AfterClass(alwaysRun = true)
