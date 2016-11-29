@@ -37,7 +37,7 @@ Rabbit QA Automation Assignment Test
 
 - open console(terminal), and execute the following commands
 
-#### Execute Test
+## Execute Test
 
 Test cases can be found in [Test
 Cases Link](https://docs.google.com/spreadsheets/d/183QGHSFJ3-oap9B56TBpK3nceaGeI2LaHDPLDHlWC2o/edit?usp=sharing)
@@ -57,7 +57,7 @@ Run test suites defined in `testng.xml`.
 - Right-click on `testng.xml` and choose `Run As` > `TestNG Suite`
 - Once test suite is complete, the test report will be available in `test-output` folder.
 
-#### Reports
+## Reports
 
 - Test reports are generated after executing the tests. These are generated and placed in `test-output` folder
   in the project root directory.
