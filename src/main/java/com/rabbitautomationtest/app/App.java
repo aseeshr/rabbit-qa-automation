@@ -1,4 +1,4 @@
-package com.fivedots.app;
+package com.rabbitautomationtest.app;
 
 /**
  * Hello world!
@@ -8,6 +8,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        System.out.println("Rabbit Automation Test App");
     }
 }

@@ -1,8 +1,18 @@
-<suite name="Mercury Tour Registration Page" verbose="1">
-  <test name="Verify Registration page">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="RegistrationTestSuite">
+  <test name="verifyRegistrationFields">
+	  <groups>
+	      <run>
+	        <include name="registration" />
+	      	<include name="registration.fields" />
+	      </run>
+	   </groups>
+	   
     <classes>
-      <class name="com.fivedots.app.VerifyRegistrationPageTest" />
-      <class name="com.fivedots.app.AppTest" />
+       <class name="com.rabbitautomationtest.app.VerifyRegistrationPageTest" />
     </classes>
   </test>
-</suite>
+  
+</suite> 

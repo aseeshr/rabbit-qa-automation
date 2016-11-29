@@ -1,16 +1,23 @@
-package com.fivedots.app;
+package com.rabbitautomationtest.app;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import junit.framework.TestCase;
-
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.testng.annotations.*;
-import static org.testng.Assert.*;
-import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 
 public class VerifyRegistrationPageTest extends TestCase {
   private WebDriver driver;
@@ -25,16 +32,12 @@ public class VerifyRegistrationPageTest extends TestCase {
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
-  @Test(description="test for the registration page")
+  @Test(groups={"registration"}, description="test for the registration page")
   public void testVerifyRegistrationPage() throws Exception {
     driver.get(baseUrl + "/mercuryregister.php");
-//    try {
-//    	System.out.println(driver.getTitle());
-//    } catch (Error e) {
-//    	System.out.println("Some error " + e.toString());
-//    }
+    
     driver.findElement(By.name("firstName")).clear();
-    driver.findElement(By.name("firstName")).sendKeys("sam");
+    driver.findElement(By.name("firstName")).sendKeys("asee");
     driver.findElement(By.name("lastName")).clear();
     driver.findElement(By.name("lastName")).sendKeys("shrestha");
     driver.findElement(By.name("phone")).clear();
@@ -57,16 +60,16 @@ public class VerifyRegistrationPageTest extends TestCase {
     driver.findElement(By.name("confirmPassword")).clear();
     driver.findElement(By.name("confirmPassword")).sendKeys("password");
     driver.findElement(By.name("register")).click();
-    try {
-    	System.out.println(driver.getTitle());
-    } catch (Error e) {
-    	System.out.println("Some error " + e.toString());
-    }
-//    try {
-//      assertEquals(driver.findElement(By.cssSelector("b")).getText(), "Dear sam shrestha,");
-//    } catch (Error e) {
-//      verificationErrors.append(e.toString());
-//    }
+  }
+  
+  @Test(groups={"registration.fields"}, description="test for the First Name")
+  public void verifyFirstName() throws Exception {
+	    driver.get(baseUrl + "/mercuryregister.php");
+	    driver.findElement(By.name("firstName")).clear();
+	    driver.findElement(By.name("firstName")).sendKeys("asee");
+	    driver.findElement(By.name("register")).click();
+	    Thread.sleep(1000);
+	    Assert.assertTrue(driver.getPageSource().contains("asee"));
   }
 
   @AfterClass(alwaysRun = true)
@@ -111,4 +114,3 @@ public class VerifyRegistrationPageTest extends TestCase {
     }
   }
 }
-
